@@ -17,19 +17,21 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="Android自定义控件小结 绘制文本drawText  计算文本的宽度、高度 float textWidth &#x3D; paint.measureText(text); Paint.FontMetrics fontMetrics &#x3D; paint.getFontMetrics(); float textHeight &#x3D; fontMetrics.top - fontMetrics.bottom;  绘制文">
+  <meta name="description" content="绘制文本drawText 计算文本的宽度、高度">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Penney&#39;s Blogs">
+<meta property="og:title" content="Android自定义控件小结">
 <meta property="og:url" content="http://example.com/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/index.html">
 <meta property="og:site_name" content="Penney&#39;s Blogs">
-<meta property="og:description" content="Android自定义控件小结 绘制文本drawText  计算文本的宽度、高度 float textWidth &#x3D; paint.measureText(text); Paint.FontMetrics fontMetrics &#x3D; paint.getFontMetrics(); float textHeight &#x3D; fontMetrics.top - fontMetrics.bottom;  绘制文">
+<meta property="og:description" content="绘制文本drawText 计算文本的宽度、高度">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-14T12:54:27.950Z">
-<meta property="article:modified_time" content="2021-01-12T10:15:35.000Z">
+<meta property="article:published_time" content="2021-01-14T02:54:07.000Z">
+<meta property="article:modified_time" content="2021-01-16T03:21:56.108Z">
 <meta property="article:author" content="Penney.wu">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="自定义控件">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title> | Penney's Blogs</title>
+  <title>Android自定义控件小结 | Penney's Blogs</title>
   
 
 
@@ -113,6 +115,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -127,46 +130,53 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
-
-  </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">0</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">8</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">0</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
 
   </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -203,7 +213,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
+          Android自定义控件小结
         </h1>
 
         <div class="post-meta">
@@ -213,15 +223,24 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-14 20:54:27" itemprop="dateCreated datePublished" datetime="2021-01-14T20:54:27+08:00">2021-01-14</time>
+              <time title="创建时间：2021-01-14 10:54:07" itemprop="dateCreated datePublished" datetime="2021-01-14T10:54:07+08:00">2021-01-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-12 18:15:35" itemprop="dateModified" datetime="2021-01-12T18:15:35+08:00">2021-01-12</time>
+                <time title="修改时间：2021-01-16 11:21:56" itemprop="dateModified" datetime="2021-01-16T11:21:56+08:00">2021-01-16</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B7%A5%E4%BD%9C%E5%B0%8F%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">工作小结</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -230,7 +249,21 @@
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
-            </span><br>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -255,10 +288,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Android自定义控件小结"><a href="#Android自定义控件小结" class="headerlink" title="Android自定义控件小结"></a>Android自定义控件小结</h1><ol>
-<li><p>绘制文本<code>drawText</code></p>
-<ul>
+        <h3 id="绘制文本drawText"><a href="#绘制文本drawText" class="headerlink" title="绘制文本drawText"></a>绘制文本<code>drawText</code></h3><ul>
 <li><p>计算文本的宽度、高度</p>
+<a id="more"></a>
+
 <p><code>float textWidth = paint.measureText(text);</code></p>
 <p><code>Paint.FontMetrics fontMetrics = paint.getFontMetrics();</code></p>
 <p><code>float textHeight = fontMetrics.top - fontMetrics.bottom;</code></p>
@@ -272,11 +305,7 @@
 
 </li>
 </ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>绘制圆角矩形</p>
-<ul>
+<h3 id="绘制圆角矩形"><a href="#绘制圆角矩形" class="headerlink" title="绘制圆角矩形"></a>绘制圆角矩形</h3><ul>
 <li><p>直接绘制<code>drawRoundRect</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RectF rect = <span class="keyword">new</span> RectF(left, top, right, bottom);</span><br><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">canvas.drawRoundRect(rect, floatRX, floatRY, paint);</span><br></pre></td></tr></table></figure></li>
 <li><p>通过裁剪路径<code>clipPath</code>得到，但画布可绘制范围只剩该矩形区域</p>
@@ -285,11 +314,7 @@
 
 </li>
 </ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>绘制圆弧<code>drawArc</code></p>
-<ul>
+<h3 id="绘制圆弧drawArc"><a href="#绘制圆弧drawArc" class="headerlink" title="绘制圆弧drawArc"></a>绘制圆弧<code>drawArc</code></h3><ul>
 <li><p>默认按顺时针方向绘制，设置圆弧所在区域矩形、起始的角度、扫过的角度</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RectF rect = <span class="keyword">new</span> RectF(left, top, right, bottom);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">paint.setStrokeCap(Paint.Cap.ROUND);<span class="comment">// 设置描边线为圆角类型</span></span><br><span class="line">canvas.drawArc(rect, startAngle, sweepAngle, <span class="keyword">false</span>, paint);</span><br></pre></td></tr></table></figure></li>
 <li><p>设置圆弧渐变色</p>
@@ -298,11 +323,7 @@
 
 </li>
 </ul>
-</li>
-</ol>
-<ol start="4">
-<li><p>其它</p>
-<ul>
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
 <li><p>androd屏幕坐标参考系，水平右方向为x轴正方向，水平左方向为x轴负方向，竖直下方向为y轴正方向，竖直上方向为y轴负方向；</p>
 </li>
 <li><p>画布<code>canvas</code>基本操作</p>
@@ -311,8 +332,6 @@
 
 </li>
 </ul>
-</li>
-</ol>
 <ul>
 <li><p>绘制时使用屏幕的实际尺寸，不能直接使用<code>3px</code>;</p>
 <p><code>int width = context.getResources().getDimensionPixelSize(R.dimen.dp_3px);</code></p>
@@ -333,6 +352,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+              <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/" rel="tag"># 自定义控件</a>
+          </div>
 
         
 
@@ -340,10 +363,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/04/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" rel="prev" title="我的第一个博客">
-      <i class="fa fa-chevron-left"></i> 我的第一个博客
+    <a href="/2021/01/13/docker-web%E6%90%AD%E5%BB%BA/" rel="prev" title="通过CentOS的Docker部署calibre-web搭建私人电子图书馆">
+      <i class="fa fa-chevron-left"></i> 通过CentOS的Docker部署calibre-web搭建私人电子图书馆
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/16/%E6%96%B0%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95/" rel="next" title="新的博客测试">
+      新的博客测试 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -356,6 +382,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -402,7 +429,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93"><span class="nav-number">1.</span> <span class="nav-text">Android自定义控件小结</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%ACdrawText"><span class="nav-number">1.</span> <span class="nav-text">绘制文本drawText</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A2"><span class="nav-number">2.</span> <span class="nav-text">绘制圆角矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7drawArc"><span class="nav-number">3.</span> <span class="nav-text">绘制圆弧drawArc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">4.</span> <span class="nav-text">其它</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -418,9 +445,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -429,13 +468,7 @@
         <a href="https://github.com/penneywu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;penneywu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="/whp2009@vip.qq.com" title="E-Mail → whp2009@vip.qq.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://www.google.com/" title="Google → https:&#x2F;&#x2F;www.google.com" rel="noopener" target="_blank"><i class="fab fa-google fa-fw"></i>Google</a>
+        <a href="/penney_wu@163.com" title="E-Mail → penney_wu@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
   </div>
 
@@ -470,13 +503,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">3k</span>
+    <span title="站点总字数">5k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2 分钟</span>
+    <span title="站点阅读时长">4 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
@@ -537,6 +570,10 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
+
+
 
 
 
@@ -551,6 +588,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'T48nMf7C66gHCN3byGhKqAiK-gzGzoHsz',
+      appKey     : 'picCQtRxmWYnP2BpYULiiIAh',
+      placeholder: "说点什么 ...",
+      avatar     : '',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
