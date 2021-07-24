@@ -22,21 +22,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="绘制文本drawText 计算文本的宽度、高度 123float textWidth &#x3D; paint.measureText(text);Paint.FontMetrics fontMetrics &#x3D; paint.getFontMetrics();float textHeight &#x3D; fontMetrics.top - fontMetrics.bottom; 绘制文本，文本绘制起始点在文本矩形的左">
+  <meta name="description" content="​    Given a sequence of K integers { N1, N2, …, N**K }. A continuous subsequence is defined to be { N**i, N**i+1, …, N**j } where 1≤i≤j≤K. The Maximum Subsequence is the continuous subsequence which">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android自定义控件小结">
-<meta property="og:url" content="http://example.com/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/index.html">
+<meta property="og:title" content="01-复杂度2 Maximum Subsequence Sum">
+<meta property="og:url" content="http://example.com/2021/07/24/01-%E5%A4%8D%E6%9D%82%E5%BA%A62-Maximum-Subsequence-Sum/index.html">
 <meta property="og:site_name" content="Penney&#39;s Blogs">
-<meta property="og:description" content="绘制文本drawText 计算文本的宽度、高度 123float textWidth &#x3D; paint.measureText(text);Paint.FontMetrics fontMetrics &#x3D; paint.getFontMetrics();float textHeight &#x3D; fontMetrics.top - fontMetrics.bottom; 绘制文本，文本绘制起始点在文本矩形的左">
+<meta property="og:description" content="​    Given a sequence of K integers { N1, N2, …, N**K }. A continuous subsequence is defined to be { N**i, N**i+1, …, N**j } where 1≤i≤j≤K. The Maximum Subsequence is the continuous subsequence which">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-14T02:54:07.000Z">
-<meta property="article:modified_time" content="2021-01-26T04:28:16.290Z">
+<meta property="article:published_time" content="2021-07-24T09:18:47.000Z">
+<meta property="article:modified_time" content="2021-07-24T09:35:15.760Z">
 <meta property="article:author" content="Penney.wu">
-<meta property="article:tag" content="android">
-<meta property="article:tag" content="自定义控件">
+<meta property="article:tag" content="复杂度">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/">
+<link rel="canonical" href="http://example.com/2021/07/24/01-%E5%A4%8D%E6%9D%82%E5%BA%A62-Maximum-Subsequence-Sum/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>Android自定义控件小结 | Penney's Blogs</title>
+  <title>01-复杂度2 Maximum Subsequence Sum | Penney's Blogs</title>
   
 
 
@@ -202,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/24/01-%E5%A4%8D%E6%9D%82%E5%BA%A62-Maximum-Subsequence-Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat.jpg">
@@ -215,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Android自定义控件小结
+          01-复杂度2 Maximum Subsequence Sum
         </h1>
 
         <div class="post-meta">
@@ -224,23 +223,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-01-14 10:54:07" itemprop="dateCreated datePublished" datetime="2021-01-14T10:54:07+08:00">2021-01-14</time>
+              <time title="创建时间：2021-07-24 17:18:47 / 修改时间：17:35:15" itemprop="dateCreated datePublished" datetime="2021-07-24T17:18:47+08:00">2021-07-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-26 12:28:16" itemprop="dateModified" datetime="2021-01-26T12:28:16+08:00">2021-01-26</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B7%A5%E4%BD%9C%E5%B0%8F%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">工作小结</span></a>
+                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
                 </span>
             </span>
 
@@ -260,8 +253,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/14/Android%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6%E5%B0%8F%E7%BB%93/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/24/01-%E5%A4%8D%E6%9D%82%E5%BA%A62-Maximum-Subsequence-Sum/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/01-%E5%A4%8D%E6%9D%82%E5%BA%A62-Maximum-Subsequence-Sum/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -271,7 +264,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -290,61 +283,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="绘制文本drawText"><a href="#绘制文本drawText" class="headerlink" title="绘制文本drawText"></a>绘制文本<code>drawText</code></h3><ul>
-<li><p>计算文本的宽度、高度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> textWidth = paint.measureText(text);</span><br><span class="line">Paint.FontMetrics fontMetrics = paint.getFontMetrics();</span><br><span class="line"><span class="keyword">float</span> textHeight = fontMetrics.top - fontMetrics.bottom;</span><br></pre></td></tr></table></figure></li>
-<li><p>绘制文本，文本绘制起始点在文本矩形的左下角，注意起始点(floatX, floatY)</p>
+        <p>​    Given a sequence of <em>K</em> integers { <em>N</em>1, <em>N</em>2, …, <em>N**K</em> }. A continuous subsequence is defined to be { <em>N**i</em>, <em>N**i</em>+1, …, <em>N**j</em> } where 1≤<em>i</em>≤<em>j</em>≤<em>K</em>. The Maximum Subsequence is the continuous subsequence which has the largest sum of its elements. For example, given sequence { -2, 11, -4, 13, -5, -2 }, its maximum subsequence is { 11, -4, 13 } with the largest sum being 20.</p>
 <a id="more"></a>
 
-<p><code>canvas.drawText(text, floatX, floatY, paint);</code> </p>
-</li>
-<li><p>利用path绘制倾斜文本</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">path.moveTo(floatX, floatY);<span class="comment">//移到起始点</span></span><br><span class="line">path.lineTo(endX, endY);<span class="comment">// 描路径</span></span><br><span class="line">canvas.drawTextOnPath(text, path, <span class="number">0</span>, <span class="number">0</span>, paint);</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="绘制圆角矩形"><a href="#绘制圆角矩形" class="headerlink" title="绘制圆角矩形"></a>绘制圆角矩形</h3><ul>
-<li><p>直接绘制<code>drawRoundRect</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RectF rect = <span class="keyword">new</span> RectF(left, top, right, bottom);</span><br><span class="line">paint.setStyle(Paint.Style.FILL);</span><br><span class="line">canvas.drawRoundRect(rect, floatRX, floatRY, paint);</span><br></pre></td></tr></table></figure></li>
-<li><p>通过裁剪路径<code>clipPath</code>得到，但画布可绘制范围只剩该矩形区域</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> r = <span class="number">3</span>; </span><br><span class="line"><span class="keyword">float</span>[] radiusArray = &#123;r,r, r,r, r,r, r,r&#125;;<span class="comment">//对应左、上、右、下四个角的圆角半径</span></span><br><span class="line">Path path = <span class="keyword">new</span> Path();</span><br><span class="line">RectF rect = <span class="keyword">new</span> RectF(left, right, top, bottom);</span><br><span class="line">path.addRoundRect(rect, radiusArray, Path.Direction.CW);</span><br><span class="line">canvas.clipPath(path);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h3 id="绘制圆弧drawArc"><a href="#绘制圆弧drawArc" class="headerlink" title="绘制圆弧drawArc"></a>绘制圆弧<code>drawArc</code></h3><ul>
-<li><p>默认按顺时针方向绘制，设置圆弧所在区域矩形、起始的角度、扫过的角度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RectF rect = <span class="keyword">new</span> RectF(left, top, right, bottom);</span><br><span class="line">paint.setStyle(Paint.Style.STROKE);</span><br><span class="line">paint.setStrokeCap(Paint.Cap.ROUND);<span class="comment">// 设置描边线为圆角类型</span></span><br><span class="line">canvas.drawArc(rect, startAngle, sweepAngle, <span class="keyword">false</span>, paint);</span><br></pre></td></tr></table></figure></li>
-<li><p>设置圆弧渐变色</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 位置数组与色值数组对应</span></span><br><span class="line"><span class="keyword">int</span>[] GRADIENT_COLORS = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;Color.parseColor(<span class="string">&quot;#F257B0&quot;</span>), Color.parseColor(<span class="string">&quot;#688FFD&quot;</span>)&#125;;</span><br><span class="line"><span class="comment">// 取值范围0-1，0和1为3点钟位置，0.25为6点钟位置，0.5为9点钟位置，0.75为12点位置</span></span><br><span class="line"><span class="keyword">float</span>[] GRADIENT_POSITION = <span class="keyword">new</span> <span class="keyword">float</span>[]&#123;<span class="number">0.45f</span>, <span class="number">1.0f</span>&#125;;</span><br><span class="line">SweepGradient gradient = <span class="keyword">new</span> SweepGradient(cx, cy, GRADIENT_COLORS, GRADIENT_POSITION);</span><br><span class="line">paint.setShader(gradient);</span><br><span class="line">canvas.drawArc(rect, startAngle, sweepAngle, <span class="keyword">false</span>, paint);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><ul>
-<li><p>androd屏幕坐标参考系，水平右方向为x轴正方向，水平左方向为x轴负方向，竖直下方向为y轴正方向，竖直上方向为y轴负方向；</p>
-</li>
-<li><p>画布<code>canvas</code>基本操作</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">canvas.translate(dx, dy); <span class="comment">// 移动画布中心</span></span><br><span class="line">canvas.rotate(degree); <span class="comment">// 画布旋转角度degree</span></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<ul>
-<li><p>绘制时使用屏幕的实际尺寸，不能直接使用<code>3px</code>;</p>
-<p><code>int width = context.getResources().getDimensionPixelSize(R.dimen.dp_3px);</code></p>
-</li>
-<li><p>Math类的常用运算</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Math.toRadians(<span class="number">180</span>);<span class="comment">//角度转弧度</span></span><br><span class="line">Math.toDegrees(pi);<span class="comment">//弧度转角度</span></span><br><span class="line">Math.sin(radians);<span class="comment">//计算三角函数sin值，传入弧度</span></span><br><span class="line">Math.ceil(<span class="number">12.7</span>);<span class="comment">//得13 取天花板值</span></span><br><span class="line">Math.floor(<span class="number">12.7</span>);<span class="comment">//得12 取地板值</span></span><br><span class="line">Math.sqrt(<span class="number">4</span>);<span class="comment">// 求开方</span></span><br><span class="line">Math.pow(x,y);<span class="comment">//求x的y次方</span></span><br><span class="line">Math.round(x);<span class="comment">//求整，四舍五入</span></span><br><span class="line">Math.min(x,y); <span class="comment">//最小值</span></span><br><span class="line">Math.max(x,y); <span class="comment">//最大值	</span></span><br><span class="line">Math.abs(x);<span class="comment">//绝对值</span></span><br><span class="line">Math.random();<span class="comment">// 返回0-1随机数</span></span><br></pre></td></tr></table></figure></li>
-<li><p>浮点数保持精度计算<code>BigDecimal</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BigDecimal bigDecimal = <span class="keyword">new</span> BigDecimal(<span class="string">&quot;3.14159&quot;</span>);</span><br><span class="line">bigDecimal.setScale(<span class="number">2</span>, BigDecimal.ROUND_DOWN);<span class="comment">// 取小数点后2位</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>动画动态取值<code>ValueAnimator</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ValueAnimator animator = ValueAnimator.ofInt(startValue, endValue);</span><br><span class="line">animator.setDuration(<span class="number">3000</span>);<span class="comment">// 设置动画持续时长</span></span><br><span class="line">animator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator valueAnimator)</span> </span>&#123;</span><br><span class="line">    	<span class="comment">// 在duration时长内，返回startValue-endValue区间的值,根据不同的值重绘界面，形成动态</span></span><br><span class="line">  		<span class="keyword">int</span> value = (<span class="keyword">int</span>) valueAnimator.getAnimatedValue();</span><br><span class="line">    	Log.d(TAG, <span class="string">&quot;animator value:&quot;</span> + value);</span><br><span class="line">                    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
+<p>​    Now you are supposed to find the largest sum, together with the first and the last numbers of the maximum subsequence.</p>
+<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>​    Each input file contains one test case. Each case occupies two lines. The first line contains a positive integer <em>K</em> (≤10000). The second line contains <em>K</em> numbers, separated by a space.</p>
+<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>​    For each test case, output in one line the largest sum, together with the first and the last numbers of the maximum subsequence. The numbers must be separated by one space, but there must be no extra space at the end of a line. In case that the maximum subsequence is not unique, output the one with the smallest indices <em>i</em> and <em>j</em> (as shown by the sample case). If all the <em>K</em> numbers are negative, then its maximum sum is defined to be 0, and you are supposed to output the first and the last numbers of the whole sequence.</p>
+<h5 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">-10</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">-5</span> <span class="number">-23</span> <span class="number">3</span> <span class="number">7</span> <span class="number">-21</span></span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span> <span class="number">1</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+<h5 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h5><p>求最大子列各，及子列的开始、结束位置</p>
+<h5 id="编码："><a href="#编码：" class="headerlink" title="编码："></a>编码：</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 10000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSub</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> N, <span class="keyword">int</span> *index)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main_p5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> number, i, total, sum, index, arr[MAXSIZE];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;number);</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; number; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    total = maxSub(arr, number, &amp;index);</span><br><span class="line">    <span class="comment">// 如果全为负数</span></span><br><span class="line">    <span class="keyword">if</span> (total &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        total = <span class="number">0</span>;</span><br><span class="line">        index = number <span class="number">-1</span>;</span><br><span class="line">        i = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, total);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, arr[i], arr[index]);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, total);</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 从最大子列和最末位index向前遍历，至sum等于total，得到开始索引i</span></span><br><span class="line">    <span class="keyword">for</span> (i = index; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        sum += arr[i];</span><br><span class="line">        <span class="keyword">if</span> (sum == total) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, arr[i], arr[index]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在线处理，即时处理算法</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxSub</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> N, <span class="keyword">int</span> *index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ThisSum = <span class="number">0</span>, MaxSum = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        ThisSum += A[i]; <span class="comment">// 向右累加</span></span><br><span class="line">        <span class="keyword">if</span> (ThisSum &gt; MaxSum) &#123;</span><br><span class="line">            MaxSum = ThisSum; <span class="comment">// 发现更大和则更新当前结果</span></span><br><span class="line">            *index = i;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ThisSum &lt; <span class="number">0</span>) &#123; <span class="comment">// 如果当前子列和为负</span></span><br><span class="line">            ThisSum = <span class="number">0</span>; <span class="comment">// 则不可能使后面的部分和增大，抛弃之</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> MaxSum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h5><ol>
+<li>根据在线算法求得最大子列和，并用index标记子列的最末位置index</li>
+<li>根据index向前遍历数组，并累加子列和，至与最大和相等，记录索引i</li>
+<li>输入最大子列和，子列开始位置i，子列结束位置index</li>
+</ol>
 
     </div>
 
@@ -354,8 +307,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
-              <a href="/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8E%A7%E4%BB%B6/" rel="tag"><i class="fa fa-tag"></i> 自定义控件</a>
+              <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6/" rel="tag"><i class="fa fa-tag"></i> 复杂度</a>
           </div>
 
         
@@ -364,12 +316,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/13/docker-web%E6%90%AD%E5%BB%BA/" rel="prev" title="通过CentOS的Docker部署calibre-web搭建私人电子图书馆">
-      <i class="fa fa-chevron-left"></i> 通过CentOS的Docker部署calibre-web搭建私人电子图书馆
+    <a href="/2021/07/24/01-%E5%A4%8D%E6%9D%82%E5%BA%A61-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/" rel="prev" title="01-复杂度1 最大子列和问题">
+      <i class="fa fa-chevron-left"></i> 01-复杂度1 最大子列和问题
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/01/20/recyclerview_use1/" rel="next" title="recyclerView使用小结(一)">
-      recyclerView使用小结(一) <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%841-%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8%E5%BA%8F%E5%88%97%E7%9A%84%E5%90%88%E5%B9%B6/" rel="next" title="02-线性结构1 两个有序链表序列的合并">
+      02-线性结构1 两个有序链表序列的合并 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -430,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E6%96%87%E6%9C%ACdrawText"><span class="nav-number">1.</span> <span class="nav-text">绘制文本drawText</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A2"><span class="nav-number">2.</span> <span class="nav-text">绘制圆角矩形</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%98%E5%88%B6%E5%9C%86%E5%BC%A7drawArc"><span class="nav-number">3.</span> <span class="nav-text">绘制圆弧drawArc</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">4.</span> <span class="nav-text">其它</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input"><span class="nav-number">3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output"><span class="nav-number">4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">编码：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">小结：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
