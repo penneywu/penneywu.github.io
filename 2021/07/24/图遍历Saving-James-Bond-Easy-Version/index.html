@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/robot_16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/robot_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="06-图2 Saving James Bond - Easy Version (25 分)​    This time let us consider the situation in the movie “Live and Let Die” in which James Bond, the world’s most famous spy, was captured by a group of d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图遍历Saving James Bond - Easy Version">
+<meta property="og:url" content="http://example.com/2021/07/24/%E5%9B%BE%E9%81%8D%E5%8E%86Saving-James-Bond-Easy-Version/index.html">
+<meta property="og:site_name" content="Penney&#39;s Blogs">
+<meta property="og:description" content="06-图2 Saving James Bond - Easy Version (25 分)​    This time let us consider the situation in the movie “Live and Let Die” in which James Bond, the world’s most famous spy, was captured by a group of d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://penney.oss-cn-shenzhen.aliyuncs.com/typora/2021/season1/20171119150253795.png">
+<meta property="article:published_time" content="2021-07-24T02:35:38.000Z">
+<meta property="article:modified_time" content="2021-07-24T02:52:19.106Z">
+<meta property="article:author" content="Penney.wu">
+<meta property="article:tag" content="图">
+<meta property="article:tag" content="图习题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://penney.oss-cn-shenzhen.aliyuncs.com/typora/2021/season1/20171119150253795.png">
+
+<link rel="canonical" href="http://example.com/2021/07/24/%E5%9B%BE%E9%81%8D%E5%8E%86Saving-James-Bond-Easy-Version/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>图遍历Saving James Bond - Easy Version | Penney's Blogs</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e97743d69eb518c30f6db1c67dff6c82";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <!--<div class="headband"></div>-->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Penney's Blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">言必行，行必果</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/24/%E5%9B%BE%E9%81%8D%E5%8E%86Saving-James-Bond-Easy-Version/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="Penney.wu">
+      <meta itemprop="description" content="现在开始种树，种树，种树">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penney's Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          图遍历Saving James Bond - Easy Version
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-24 10:35:38 / 修改时间：10:52:19" itemprop="dateCreated datePublished" datetime="2021-07-24T10:35:38+08:00">2021-07-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/07/24/%E5%9B%BE%E9%81%8D%E5%8E%86Saving-James-Bond-Easy-Version/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/%E5%9B%BE%E9%81%8D%E5%8E%86Saving-James-Bond-Easy-Version/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="06-图2-Saving-James-Bond-Easy-Version-25-分"><a href="#06-图2-Saving-James-Bond-Easy-Version-25-分" class="headerlink" title="06-图2 Saving James Bond - Easy Version (25 分)"></a><strong>06-图2 Saving James Bond - Easy Version (25 分)</strong></h4><p>​    This time let us consider the situation in the movie “Live and Let Die” in which James Bond, the world’s most famous spy, was captured by a group of drug dealers. He was sent to a small piece of land at the center of a lake filled with crocodiles. There he performed the most daring action to escape – he jumped onto the head of the nearest crocodile! Before the animal realized what was happening, James jumped again onto the next big head… Finally he reached the bank before the last crocodile could bite him (actually the stunt man was caught by the big mouth and barely escaped with his extra thick boot).</p>
+<a id="more"></a>
+
+<p><img src="http://penney.oss-cn-shenzhen.aliyuncs.com/typora/2021/season1/20171119150253795.png" alt="20171119150253795"></p>
+<p>​    Assume that the lake is a 100 by 100 square one. Assume that the center of the lake is at (0,0) and the northeast corner at (50,50). The central island is a disk centered at (0,0) with the diameter of 15. A number of crocodiles are in the lake at various positions. Given the coordinates of each crocodile and the distance that James could jump, you must tell him whether or not he can escape.</p>
+<h5 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h5><p>​    Each input file contains one test case. Each case starts with a line containing two positive integers <em>N</em> (≤100), the number of crocodiles, and <em>D</em>, the maximum distance that James could jump. Then <em>N</em> lines follow, each containing the (<em>x</em>,<em>y</em>) location of a crocodile. Note that no two crocodiles are staying at the same position.</p>
+<h5 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h5><p>​    For each test case, print in a line “Yes” if James can escape, or “No” if not.</p>
+<h5 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1:"></a>Sample Input 1:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">14</span> <span class="number">20</span></span><br><span class="line"><span class="number">25</span> <span class="number">-15</span></span><br><span class="line"><span class="number">-25</span> <span class="number">28</span></span><br><span class="line"><span class="number">8</span> <span class="number">49</span></span><br><span class="line"><span class="number">29</span> <span class="number">15</span></span><br><span class="line"><span class="number">-35</span> <span class="number">-2</span></span><br><span class="line"><span class="number">5</span> <span class="number">28</span></span><br><span class="line"><span class="number">27</span> <span class="number">-29</span></span><br><span class="line"><span class="number">-8</span> <span class="number">-28</span></span><br><span class="line"><span class="number">-20</span> <span class="number">-35</span></span><br><span class="line"><span class="number">-25</span> <span class="number">-20</span></span><br><span class="line"><span class="number">-13</span> <span class="number">29</span></span><br><span class="line"><span class="number">-30</span> <span class="number">15</span></span><br><span class="line"><span class="number">-35</span> <span class="number">40</span></span><br><span class="line"><span class="number">12</span> <span class="number">12</span></span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1:"></a>Sample Output 1:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Yes</span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2:"></a>Sample Input 2:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">13</span></span><br><span class="line"><span class="number">-12</span> <span class="number">12</span></span><br><span class="line"><span class="number">12</span> <span class="number">12</span></span><br><span class="line"><span class="number">-12</span> <span class="number">-12</span></span><br><span class="line"><span class="number">12</span> <span class="number">-12</span></span><br></pre></td></tr></table></figure>
+<h5 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2:"></a>Sample Output 2:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No</span><br></pre></td></tr></table></figure>
+<h5 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h5><ol>
+<li>根据输入的鳄鱼条数N创建图中的坐标点，用结构体数组表示；</li>
+<li>根据当前坐标是否可以直接跳到安全的岸边IsSafe；</li>
+<li>遍历数组所有的点，判断哪些可以完成第一步跳跃FirstJump；</li>
+<li>完成第一跳后继续深度搜索DFS哪些点可以进行下一跳CanJump；</li>
+<li>输出是否存在安全跳到岸边的可能。</li>
+</ol>
+<h5 id="编码"><a href="#编码" class="headerlink" title="编码:"></a>编码:</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DIA 15</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SIDE 100</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsSafe</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">FirstJump</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">CanJump</span><span class="params">(<span class="keyword">int</span> index1, <span class="keyword">int</span> index2)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.恶鱼所在坐标数组A，最大为100</span></span><br><span class="line"><span class="comment">// 2.标记数组B，是否是访问过</span></span><br><span class="line"><span class="comment">// 3.恶鱼的条数N, 以及007跳跃的距离D</span></span><br><span class="line"><span class="comment">// 4.池塘边长SIDE为100，中间小岛半径DIA15</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Data</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">&#125; A[MAXN];</span><br><span class="line"><span class="keyword">int</span> B[MAXN], N, D;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, flag = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 1.读取恶鱼的条数，以及007跳跃的距离D</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;D);</span><br><span class="line">    <span class="comment">// 2.读取各条恶鱼的坐标，存储在数组A中</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;A[i].x, &amp;A[i].y);</span><br><span class="line">    <span class="comment">// 3.判断是否可以跳到岸边</span></span><br><span class="line">    <span class="keyword">if</span> (IsSafe(<span class="number">-1</span>))</span><br><span class="line">        flag = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 4.如不能，则遍历恶鱼寻找可以第一步跳的恶鱼</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!B[i] &amp;&amp; FirstJump(i)) &#123;</span><br><span class="line">                B[i] = <span class="number">1</span>;</span><br><span class="line">                <span class="comment">// 5.如果完成第一跳，继续深度搜索DFS</span></span><br><span class="line">                <span class="keyword">if</span> (DFS(i))</span><br><span class="line">                    flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (flag)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Yes&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;No&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否可以跳到岸边</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsSafe</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1.是否为第一跳-1，小岛半径 + 跳跃距离 &gt; 边长</span></span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((<span class="keyword">double</span>) DIA / <span class="number">2</span> + D &gt;= (<span class="keyword">double</span>) SIDE / <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 非第一跳，当前坐标x或y+跳跃距离大于边长，说明成功</span></span><br><span class="line">        <span class="keyword">int</span> x = A[index].x;</span><br><span class="line">        <span class="keyword">int</span> y = A[index].y;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">abs</span>(x) + D &gt;= SIDE / <span class="number">2</span>) || (<span class="built_in">abs</span>(y) + D &gt;= SIDE / <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否可以第一跳</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">FirstJump</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1.坐标x,y到圆心的距离distance</span></span><br><span class="line">    <span class="keyword">double</span> distance = <span class="built_in">sqrt</span>(<span class="built_in">pow</span>(A[index].x, <span class="number">2</span>) + <span class="built_in">pow</span>(A[index].y, <span class="number">2</span>));</span><br><span class="line">    <span class="comment">// 2.如果跳跃距离 + 边长 &gt;= 半径distance，则为真</span></span><br><span class="line">    <span class="keyword">return</span> (D + (<span class="keyword">double</span>) DIA / <span class="number">2</span> &gt;= distance);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否可以下一跳</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">CanJump</span><span class="params">(<span class="keyword">int</span> index1, <span class="keyword">int</span> index2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x1 = A[index1].x, y1 = A[index1].y;</span><br><span class="line">    <span class="keyword">int</span> x2 = A[index2].x, y2 = A[index2].y;</span><br><span class="line">    <span class="comment">// 1.取index1,index2两点间的距离distance</span></span><br><span class="line">    <span class="keyword">double</span> distance = <span class="built_in">sqrt</span>(<span class="built_in">pow</span>(x1 - x2, <span class="number">2</span>) + <span class="built_in">pow</span>(y1 - y2, <span class="number">2</span>));</span><br><span class="line">    <span class="comment">// 2.如果点距distance小于等于可跳跃的距离</span></span><br><span class="line">    <span class="keyword">return</span> D &gt;= distance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 深度搜索index</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1.判断是否可以跳到岸边</span></span><br><span class="line">    <span class="keyword">if</span> (IsSafe(index))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="comment">// 2.遍历数组中所有的点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="comment">// 3.如果点i未被访问过，且点i可以跳跃到，则继续下一跳DFS递归</span></span><br><span class="line">        <span class="keyword">if</span> (!B[i] &amp;&amp; CanJump(i, index)) &#123;</span><br><span class="line">            B[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (DFS(i))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE/" rel="tag"><i class="fa fa-tag"></i> 图</a>
+              <a href="/tags/%E5%9B%BE%E4%B9%A0%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 图习题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86Tree-Traversals-Again/" rel="prev" title="二叉树遍历Tree Traversals Again">
+      <i class="fa fa-chevron-left"></i> 二叉树遍历Tree Traversals Again
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#06-%E5%9B%BE2-Saving-James-Bond-Easy-Version-25-%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">06-图2 Saving James Bond - Easy Version (25 分)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output-Specification"><span class="nav-number">1.2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input-1"><span class="nav-number">1.3.</span> <span class="nav-text">Sample Input 1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output-1"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Output 1:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input-2"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Input 2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output-2"><span class="nav-number">1.6.</span> <span class="nav-text">Sample Output 2:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.7.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number">1.8.</span> <span class="nav-text">编码:</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Penney.wu"
+      src="/images/cat.jpg">
+  <p class="site-author-name" itemprop="name">Penney.wu</p>
+  <div class="site-description" itemprop="description">现在开始种树，种树，种树</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/penneywu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;penneywu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/penney_wu@163.com" title="E-Mail → penney_wu@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Penney.wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">44k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">40 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'T48nMf7C66gHCN3byGhKqAiK-gzGzoHsz',
+      appKey     : 'picCQtRxmWYnP2BpYULiiIAh',
+      placeholder: "说点什么 ...",
+      avatar     : '',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
