@@ -22,23 +22,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="03-树3 Tree Traversals Again​    An inorder binary tree traversal can be implemented in a non-recursive way with a stack. For example, suppose that when a 6-node binary tree (with the keys numbered fro">
+  <meta name="description" content="​    An inorder binary tree traversal can be implemented in a non-recursive way with a stack. For example, suppose that when a 6-node binary tree (with the keys numbered from 1 to 6) is traversed, the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二叉树遍历Tree Traversals Again">
-<meta property="og:url" content="http://example.com/2021/07/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86Tree-Traversals-Again/index.html">
+<meta property="og:title" content="03-树3 Tree Traversals Again">
+<meta property="og:url" content="http://example.com/2021/07/24/03-%E6%A0%913%20Tree%20Traversals%20Again/index.html">
 <meta property="og:site_name" content="Penney&#39;s Blogs">
-<meta property="og:description" content="03-树3 Tree Traversals Again​    An inorder binary tree traversal can be implemented in a non-recursive way with a stack. For example, suppose that when a 6-node binary tree (with the keys numbered fro">
+<meta property="og:description" content="​    An inorder binary tree traversal can be implemented in a non-recursive way with a stack. For example, suppose that when a 6-node binary tree (with the keys numbered from 1 to 6) is traversed, the">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://penney.oss-cn-shenzhen.aliyuncs.com/typora/2021/season1/20151020162946653.png">
 <meta property="article:published_time" content="2021-07-24T02:08:57.000Z">
-<meta property="article:modified_time" content="2021-07-24T03:42:02.394Z">
+<meta property="article:modified_time" content="2021-07-24T08:41:19.185Z">
 <meta property="article:author" content="Penney.wu">
 <meta property="article:tag" content="树">
 <meta property="article:tag" content="树习题">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://penney.oss-cn-shenzhen.aliyuncs.com/typora/2021/season1/20151020162946653.png">
 
-<link rel="canonical" href="http://example.com/2021/07/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86Tree-Traversals-Again/">
+<link rel="canonical" href="http://example.com/2021/07/24/03-%E6%A0%913%20Tree%20Traversals%20Again/">
 
 
 <script id="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>二叉树遍历Tree Traversals Again | Penney's Blogs</title>
+  <title>03-树3 Tree Traversals Again | Penney's Blogs</title>
   
 
 
@@ -204,7 +204,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86Tree-Traversals-Again/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/24/03-%E6%A0%913%20Tree%20Traversals%20Again/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat.jpg">
@@ -217,7 +217,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          二叉树遍历Tree Traversals Again
+          03-树3 Tree Traversals Again
         </h1>
 
         <div class="post-meta">
@@ -228,7 +228,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-07-24 10:08:57 / 修改时间：11:42:02" itemprop="dateCreated datePublished" datetime="2021-07-24T10:08:57+08:00">2021-07-24</time>
+              <time title="创建时间：2021-07-24 10:08:57 / 修改时间：16:41:19" itemprop="dateCreated datePublished" datetime="2021-07-24T10:08:57+08:00">2021-07-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -256,8 +256,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86Tree-Traversals-Again/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86Tree-Traversals-Again/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/24/03-%E6%A0%913%20Tree%20Traversals%20Again/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/03-%E6%A0%913%20Tree%20Traversals%20Again/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -267,7 +267,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.7k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h4 id="03-树3-Tree-Traversals-Again"><a href="#03-树3-Tree-Traversals-Again" class="headerlink" title="03-树3 Tree Traversals Again"></a><strong>03-树3 Tree Traversals Again</strong></h4><p>​    An inorder binary tree traversal can be implemented in a non-recursive way with a stack. For example, suppose that when a 6-node binary tree (with the keys numbered from 1 to 6) is traversed, the stack operations are: push(1); push(2); push(3); pop(); pop(); push(4); pop(); pop(); push(5); push(6); pop(); pop(). Then a unique binary tree (shown in Figure 1) can be generated from this sequence of operations. Your task is to give the postorder traversal sequence of this tree.</p>
+        <p>​    An inorder binary tree traversal can be implemented in a non-recursive way with a stack. For example, suppose that when a 6-node binary tree (with the keys numbered from 1 to 6) is traversed, the stack operations are: push(1); push(2); push(3); pop(); pop(); push(4); pop(); pop(); push(5); push(6); pop(); pop(). Then a unique binary tree (shown in Figure 1) can be generated from this sequence of operations. Your task is to give the postorder traversal sequence of this tree.</p>
 <a id="more"></a>
 
 <p><img src="http://penney.oss-cn-shenzhen.aliyuncs.com/typora/2021/season1/20151020162946653.png" alt="20151020162946653"></p>
@@ -324,8 +324,8 @@
       <i class="fa fa-chevron-left"></i> 树结构_大顶堆
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/24/%E5%9B%BE%E9%81%8D%E5%8E%86Saving-James-Bond-Easy-Version/" rel="next" title="图遍历Saving James Bond - Easy Version">
-      图遍历Saving James Bond - Easy Version <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/24/06-%E5%9B%BE2%20Saving%20James%20Bond%20-%20Easy%20Version/" rel="next" title="06-图2 Saving James Bond - Easy Version">
+      06-图2 Saving James Bond - Easy Version <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -386,7 +386,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#03-%E6%A0%913-Tree-Traversals-Again"><span class="nav-number">1.</span> <span class="nav-text">03-树3 Tree Traversals Again</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output-Specification"><span class="nav-number">1.2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input"><span class="nav-number">1.3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">编码：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A"><span class="nav-number">1.7.</span> <span class="nav-text">小结：</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Input"><span class="nav-number">3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-Output"><span class="nav-number">4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">编码：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A"><span class="nav-number">7.</span> <span class="nav-text">小结：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -466,7 +466,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">49 分钟</span>
+    <span title="站点阅读时长">48 分钟</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
