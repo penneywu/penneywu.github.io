@@ -22,20 +22,21 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="​    Given a stack which can keep M numbers at most. Push N numbers in the order of 1, 2, 3, …, N and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence o">
+  <meta name="description" content="结构 HTNode - PtrToHTNode - HuffmanTree 权重 左哈夫曼树 右哈夫曼树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="02-线性结构4 Pop Sequence">
-<meta property="og:url" content="http://example.com/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844-Pop-Sequence/index.html">
+<meta property="og:title" content="树结构_哈夫曼树">
+<meta property="og:url" content="http://example.com/2021/07/25/%E6%A0%91%E7%BB%93%E6%9E%84_%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/index.html">
 <meta property="og:site_name" content="Penney&#39;s Blogs">
-<meta property="og:description" content="​    Given a stack which can keep M numbers at most. Push N numbers in the order of 1, 2, 3, …, N and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence o">
+<meta property="og:description" content="结构 HTNode - PtrToHTNode - HuffmanTree 权重 左哈夫曼树 右哈夫曼树">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-07-24T13:56:45.000Z">
-<meta property="article:modified_time" content="2021-07-24T14:53:01.186Z">
+<meta property="article:published_time" content="2021-07-25T12:22:54.000Z">
+<meta property="article:modified_time" content="2021-07-25T12:36:22.494Z">
 <meta property="article:author" content="Penney.wu">
-<meta property="article:tag" content="线性结构">
+<meta property="article:tag" content="树">
+<meta property="article:tag" content="哈夫曼树">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844-Pop-Sequence/">
+<link rel="canonical" href="http://example.com/2021/07/25/%E6%A0%91%E7%BB%93%E6%9E%84_%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">
 
 
 <script id="page-configurations">
@@ -48,7 +49,7 @@
   };
 </script>
 
-  <title>02-线性结构4 Pop Sequence | Penney's Blogs</title>
+  <title>树结构_哈夫曼树 | Penney's Blogs</title>
   
 
 
@@ -201,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844-Pop-Sequence/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/25/%E6%A0%91%E7%BB%93%E6%9E%84_%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/cat.jpg">
@@ -214,7 +215,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          02-线性结构4 Pop Sequence
+          树结构_哈夫曼树
         </h1>
 
         <div class="post-meta">
@@ -225,7 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-07-24 21:56:45 / 修改时间：22:53:01" itemprop="dateCreated datePublished" datetime="2021-07-24T21:56:45+08:00">2021-07-24</time>
+              <time title="创建时间：2021-07-25 20:22:54 / 修改时间：20:36:22" itemprop="dateCreated datePublished" datetime="2021-07-25T20:22:54+08:00">2021-07-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -233,7 +234,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
                 </span>
             </span>
 
@@ -253,8 +254,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844-Pop-Sequence/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844-Pop-Sequence/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/25/%E6%A0%91%E7%BB%93%E6%9E%84_%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/25/%E6%A0%91%E7%BB%93%E6%9E%84_%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -264,14 +265,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>887</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -283,20 +284,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​    Given a stack which can keep <em>M</em> numbers at most. Push <em>N</em> numbers in the order of 1, 2, 3, …, <em>N</em> and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if <em>M</em> is 5 and <em>N</em> is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack, but not 3, 2, 1, 7, 5, 6, 4.</p>
+        <h4 id="结构-HTNode-PtrToHTNode-HuffmanTree"><a href="#结构-HTNode-PtrToHTNode-HuffmanTree" class="headerlink" title="结构 HTNode - PtrToHTNode - HuffmanTree"></a>结构 HTNode - PtrToHTNode - HuffmanTree</h4><ol>
+<li>权重</li>
+<li>左哈夫曼树</li>
+<li>右哈夫曼树</li>
+</ol>
 <a id="more"></a>
 
-<h4 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h4><p>​    Each input file contains one test case. For each case, the first line contains 3 numbers (all no more than 1000): <em>M</em> (the maximum capacity of the stack), <em>N</em> (the length of push sequence), and <em>K</em> (the number of pop sequences to be checked). Then <em>K</em> lines follow, each contains a pop sequence of <em>N</em> numbers. All the numbers in a line are separated by a space.</p>
-<h4 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h4><p>​    For each pop sequence, print in one line “YES” if it is indeed a possible pop sequence of the stack, or “NO” if not.</p>
-<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">7</span> <span class="number">5</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span> <span class="number">1</span> <span class="number">7</span> <span class="number">5</span> <span class="number">6</span> <span class="number">4</span></span><br><span class="line"><span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">5</span> <span class="number">6</span> <span class="number">4</span> <span class="number">3</span> <span class="number">7</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">7</span> <span class="number">6</span> <span class="number">5</span> <span class="number">4</span> <span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
-<h4 id="分析："><a href="#分析：" class="headerlink" title="分析："></a>分析：</h4><ul>
-<li>本解法主要思路为逆向放置</li>
-<li>即将测试用例中的数从最后一个开始放置</li>
-<li>如果能在一定容量的堆栈下输出N~1</li>
-<li>将放与取操作取反,即可满足题意</li>
-</ul>
-<h4 id="编码："><a href="#编码：" class="headerlink" title="编码："></a>编码：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//本解法主要思路为逆向放置</span></span><br><span class="line"><span class="comment">//即将测试用例中的数从最后一个开始放置</span></span><br><span class="line"><span class="comment">//如果能在一定容量的堆栈下输出N~1</span></span><br><span class="line"><span class="comment">//将放与取操作取反</span></span><br><span class="line"><span class="comment">//即可满足题意</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main_p3</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> M,N,K;</span><br><span class="line">    <span class="keyword">int</span> target;</span><br><span class="line">    <span class="comment">// 1.用数组表示堆栈存储元素,top为栈顶指针</span></span><br><span class="line">    <span class="keyword">int</span> top;</span><br><span class="line">    <span class="keyword">int</span> data[<span class="number">1001</span>];</span><br><span class="line">    <span class="comment">// 2.读取堆栈容量M,顺序数字N,测试序列K</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;M,&amp;N,&amp;K);</span><br><span class="line">    <span class="keyword">int</span> b[N];</span><br><span class="line">    <span class="keyword">int</span> n ;</span><br><span class="line">    <span class="comment">// 3.重复读取K组序列</span></span><br><span class="line">    <span class="keyword">while</span>(K--)&#123;</span><br><span class="line">        target = N;</span><br><span class="line">        top = <span class="number">-1</span>;</span><br><span class="line">        n = N;</span><br><span class="line">        <span class="comment">// 4.读取一组测试序列，存放在数组b中</span></span><br><span class="line">        <span class="keyword">while</span>(n)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;b[N-n]);</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line">        n = N<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span>(n+<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="comment">//5.依次将数组b中的元素压入堆栈data中</span></span><br><span class="line">            top++;</span><br><span class="line">            <span class="keyword">if</span>(top &gt;= M)&#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            data[top] = b[n];</span><br><span class="line">            <span class="comment">// 6.如果</span></span><br><span class="line">            <span class="keyword">while</span>(data[top] == target&amp;&amp;top &gt;<span class="number">-1</span>)&#123;</span><br><span class="line">                target--;</span><br><span class="line">                <span class="comment">//printf(&quot;%d&quot;,top);</span></span><br><span class="line">                top--;</span><br><span class="line">                <span class="comment">// printf(&quot;%d&quot;,top);</span></span><br><span class="line">            &#125;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//printf(&quot;%d&quot;,top);</span></span><br><span class="line">        <span class="comment">//printf(&quot;%d&quot;,target);</span></span><br><span class="line">        <span class="keyword">if</span>(top == <span class="number">-1</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(K != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="从最小堆构造哈夫曼树"><a href="#从最小堆构造哈夫曼树" class="headerlink" title="从最小堆构造哈夫曼树"></a>从最小堆构造哈夫曼树</h4><ol>
+<li>假设H-&gt;Size个权值已经存在H-&gt;Elements[]-&gt;Weight里</li>
+<li>将H-&gt;Elements[]按权值调整为最小堆</li>
+<li>遍历所有元素</li>
+<li>创建树结点,从小顶堆中最小值为左子树，再从堆取最小值为右子树</li>
+<li>将左子树的权重加右子树的权重为根结点的权重</li>
+<li>重新将新创建的根结点插入回小顶堆中</li>
+</ol>
+<h4 id="编码："><a href="#编码：" class="headerlink" title="编码："></a>编码：</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HTNode</span> *<span class="title">HuffmanTree</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HTNode</span> &#123;</span></span><br><span class="line">    <span class="comment">// 1.权重</span></span><br><span class="line">    <span class="keyword">int</span> Weight;</span><br><span class="line">    <span class="comment">// 2.左哈夫曼树</span></span><br><span class="line">    HuffmanTree Left;</span><br><span class="line">    <span class="comment">// 3.右哈夫曼树</span></span><br><span class="line">    HuffmanTree Right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 从最小堆构造哈夫曼树</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">HuffmanTree <span class="title">HuffMan</span><span class="params">(MinHeap H)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1.假设H-&gt;Size个权值已经存在H-&gt;Elements[]-&gt;Weight里</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    HuffmanTree T;</span><br><span class="line">    <span class="comment">// 2.将H-&gt;Elements[]按权值调整为最小堆</span></span><br><span class="line">    BuildMinHeap(H);</span><br><span class="line">    <span class="comment">// 3.遍历所有元素</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; H-&gt;Size; i++) &#123;</span><br><span class="line">        <span class="comment">// 4.创建树结点,从小顶堆中最小值为左子树，再从堆取最小值为右子树</span></span><br><span class="line">        T = <span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HTNode));</span><br><span class="line">        T-&gt;Left = DeleteMin(H);</span><br><span class="line">        T-&gt;Right = DeleteMin(H);</span><br><span class="line">        <span class="comment">// 5.将左子树的权重加右子树的权重为根结点的权重</span></span><br><span class="line">        T-&gt;Weight = T-&gt;Left-&gt;Weight + T-&gt;Right-&gt;Weight;</span><br><span class="line">        <span class="comment">// 6.重新将新创建的根结点插入回小顶堆中</span></span><br><span class="line">        Insert(H, T);</span><br><span class="line">    &#125;</span><br><span class="line">    T = DeleteMin(H);</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
     </div>
 
@@ -306,7 +311,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 线性结构</a>
+              <a href="/tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
+              <a href="/tags/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 哈夫曼树</a>
           </div>
 
         
@@ -315,12 +321,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%842-%E4%B8%80%E5%85%83%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%9A%84%E4%B9%98%E6%B3%95%E4%B8%8E%E5%8A%A0%E6%B3%95%E8%BF%90%E7%AE%97/" rel="prev" title="02-线性结构2 一元多项式的乘法与加法运算">
-      <i class="fa fa-chevron-left"></i> 02-线性结构2 一元多项式的乘法与加法运算
+    <a href="/2021/07/24/02-%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%844-Pop-Sequence/" rel="prev" title="02-线性结构4 Pop Sequence">
+      <i class="fa fa-chevron-left"></i> 02-线性结构4 Pop Sequence
     </a></div>
       <div class="post-nav-item">
-    <a href="/2021/07/25/%E6%A0%91%E7%BB%93%E6%9E%84_%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91/" rel="next" title="树结构_哈夫曼树">
-      树结构_哈夫曼树 <i class="fa fa-chevron-right"></i>
+    <a href="/2021/07/25/%E5%9B%BE%E7%BB%93%E6%9E%84_%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5/" rel="next" title="图结构_邻接矩阵">
+      图结构_邻接矩阵 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -381,7 +387,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Input"><span class="nav-number">3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Output"><span class="nav-number">4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%EF%BC%9A"><span class="nav-number">6.</span> <span class="nav-text">编码：</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84-HTNode-PtrToHTNode-HuffmanTree"><span class="nav-number">1.</span> <span class="nav-text">结构 HTNode - PtrToHTNode - HuffmanTree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%8E%E6%9C%80%E5%B0%8F%E5%A0%86%E6%9E%84%E9%80%A0%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91"><span class="nav-number">2.</span> <span class="nav-text">从最小堆构造哈夫曼树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">编码：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
