@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/robot_16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/robot_16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="​    Given a tree, you are supposed to list all the leaves in the order of top down, and left to right. Input Specification:​    Each input file contains one test case. For each case, the first line g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="03-树2 List Leaves">
+<meta property="og:url" content="http://example.com/2021/07/26/03-%E6%A0%912-List-Leaves/index.html">
+<meta property="og:site_name" content="Penney&#39;s Blogs">
+<meta property="og:description" content="​    Given a tree, you are supposed to list all the leaves in the order of top down, and left to right. Input Specification:​    Each input file contains one test case. For each case, the first line g">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-26T13:01:15.000Z">
+<meta property="article:modified_time" content="2021-07-26T13:02:43.450Z">
+<meta property="article:author" content="Penney.wu">
+<meta property="article:tag" content="树">
+<meta property="article:tag" content="树习题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/07/26/03-%E6%A0%912-List-Leaves/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>03-树2 List Leaves | Penney's Blogs</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?e97743d69eb518c30f6db1c67dff6c82";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <!--<div class="headband"></div>-->
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Penney's Blogs</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">言必行，行必果</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">4</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/07/26/03-%E6%A0%912-List-Leaves/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.jpg">
+      <meta itemprop="name" content="Penney.wu">
+      <meta itemprop="description" content="现在开始种树，种树，种树">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Penney's Blogs">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          03-树2 List Leaves
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-07-26 21:01:15 / 修改时间：21:02:43" itemprop="dateCreated datePublished" datetime="2021-07-26T21:01:15+08:00">2021-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PTA/" itemprop="url" rel="index"><span itemprop="name">PTA</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/07/26/03-%E6%A0%912-List-Leaves/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/26/03-%E6%A0%912-List-Leaves/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>​    Given a tree, you are supposed to list all the leaves in the order of top down, and left to right.</p>
+<h4 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h4><p>​    Each input file contains one test case. For each case, the first line gives a positive integer <em>N</em> (≤10) which is the total number of nodes in the tree – and hence the nodes are numbered from 0 to <em>N</em>−1. Then <em>N</em> lines follow, each corresponds to a node, and gives the indices of the left and right children of the node. If the child does not exist, a “-“ will be put at the position. Any pair of children are separated by a space.</p>
+<a id="more"></a>
+
+<h4 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h4><p>​    For each test case, print in one line all the leaves’ indices in the order of top down, and left to right. There must be exactly one space between any adjacent numbers, and no extra space at the end of the line.</p>
+<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span></span><br><span class="line"><span class="number">1</span> -</span><br><span class="line">- -</span><br><span class="line"><span class="number">0</span> -</span><br><span class="line"><span class="number">2</span> <span class="number">7</span></span><br><span class="line">- -</span><br><span class="line">- -</span><br><span class="line"><span class="number">5</span> -</span><br><span class="line"><span class="number">4</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">1</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h4 id="结构-TreeNode数组"><a href="#结构-TreeNode数组" class="headerlink" title="结构 TreeNode数组"></a>结构 TreeNode数组</h4><ol>
+<li>结点值Element</li>
+<li>左子树</li>
+<li>右子树</li>
+<li>结点数组T1用于存放输入的数据，T2存放层序遍历的数据</li>
+</ol>
+<h4 id="生成二叉树-CreateBiTree"><a href="#生成二叉树-CreateBiTree" class="headerlink" title="生成二叉树 CreateBiTree"></a>生成二叉树 CreateBiTree</h4><ol>
+<li>输入结点数</li>
+<li>check数组用来判断根的位置,check[i]初始化为0</li>
+<li>读取N个结点的左、右孩子</li>
+<li>如果读取的非‘-’数据则写入左子树,同时check标记该点有子树，读空则为Null</li>
+<li>如果读取非’-‘数据则写入右子树，同时check标记该点有子树，读入空则为Null</li>
+<li>写入结点的值i</li>
+<li>如果左右都为’-‘，叶子数leves加1</li>
+<li>遍历标记数组，index的值check为0，则说明该点无父结点，是根结点</li>
+</ol>
+<h4 id="主要步骤"><a href="#主要步骤" class="headerlink" title="主要步骤"></a>主要步骤</h4><ol>
+<li>创建二叉树，返回根结点及叶子数</li>
+<li>将根结点添加到T2数组的第1个位置</li>
+<li>遍历数组，直到头、尾指针相同</li>
+<li>取出队列头结点FirstCell</li>
+<li>如果左、右子树都为空，则打针叶子结点</li>
+<li>如果头结点FirstCell的左子树不空，加入左子树到队列中</li>
+<li>如果头结点FirstCell的右子树不空，加入右子树到队列中</li>
+</ol>
+<h4 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxTree 10</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElementType int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Tree int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Null -1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> <span class="title">PtrToTNode</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> &#123;</span></span><br><span class="line">    <span class="comment">// 1.结点值</span></span><br><span class="line">    ElementType Element;</span><br><span class="line">    <span class="comment">// 2.左子树</span></span><br><span class="line">    Tree Left;</span><br><span class="line">    <span class="comment">// 3.右子树</span></span><br><span class="line">    Tree Right;</span><br><span class="line">&#125; T1[MaxTree], T2[MaxTree];</span><br><span class="line"><span class="comment">// 4.结点数组T1用于存放输入的数据，T2存放层序遍历的数据</span></span><br><span class="line"></span><br><span class="line"><span class="function">Tree <span class="title">CreateBiTree</span><span class="params">(struct TreeNode T[], <span class="keyword">int</span> *leaves)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Tree R1;</span><br><span class="line">    <span class="keyword">int</span> Front, Rear, LeavesNub;</span><br><span class="line">    PtrToTNode FirstCell;</span><br><span class="line">    <span class="comment">// 1.创建二叉树，返回根结点及叶子数</span></span><br><span class="line">    R1 = CreateBiTree(T1, &amp;LeavesNub);</span><br><span class="line">    Front = Rear = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 2.将根结点添加到T2数组的第1个位置</span></span><br><span class="line">    T2[Rear++] = T1[R1];</span><br><span class="line">    <span class="comment">// 3.遍历数组，直到头、尾指针相同</span></span><br><span class="line">    <span class="keyword">while</span> (Rear != Front) &#123;</span><br><span class="line">        <span class="comment">// 4.取出队列头结点FirstCell</span></span><br><span class="line">        FirstCell = T2[Front++];</span><br><span class="line">        <span class="comment">// 5.如果左、右子树都为空，则打针叶子结点</span></span><br><span class="line">        <span class="keyword">if</span> (FirstCell.Right == Null &amp;&amp; FirstCell.Left == Null) &#123;</span><br><span class="line">            <span class="keyword">if</span> (LeavesNub != <span class="number">1</span>)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, FirstCell.Element);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, FirstCell.Element);</span><br><span class="line">            LeavesNub--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 6.如果头结点FirstCell的左子树不空，加入左子树到队列中</span></span><br><span class="line">        <span class="keyword">if</span> (FirstCell.Left != Null) &#123;</span><br><span class="line">            T2[Rear++] = T1[FirstCell.Left];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 7.如果头结点FirstCell的右子树不空，加入右子树到队列中</span></span><br><span class="line">        <span class="keyword">if</span> (FirstCell.Right != Null) &#123;</span><br><span class="line">            T2[Rear++] = T1[FirstCell.Right];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 从输入的数据中生成二叉树，保存在结构体数组中</span></span><br><span class="line"><span class="comment"> * @param T  元素&#123;index left right&#125;</span></span><br><span class="line"><span class="comment"> * @param leaves 统计叶子总数，用于控制输出格式</span></span><br><span class="line"><span class="comment"> * @return</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Tree <span class="title">CreateBiTree</span><span class="params">(struct TreeNode T[], <span class="keyword">int</span> *leaves)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, N, check[MaxTree];</span><br><span class="line">    Tree Root = Null;</span><br><span class="line">    <span class="keyword">char</span> cl, cr;</span><br><span class="line">    <span class="comment">// 1.输入结点数</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d\n&quot;</span>, &amp;N);</span><br><span class="line">    <span class="keyword">if</span> (N) &#123;</span><br><span class="line">        <span class="comment">//2.check数组用来判断根的位置,check[i]初始化为0</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">            check[i] = <span class="number">0</span>;</span><br><span class="line">        *leaves = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 3.读取N个结点的左、右孩子</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%c %c\n&quot;</span>, &amp;cl, &amp;cr);</span><br><span class="line">            <span class="comment">// 4.如果读取的非‘-’数据则写入左子树,同时check标记该点有子树，读空则为Null</span></span><br><span class="line">            <span class="keyword">if</span> (cl != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">                T[i].Left = cl - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                check[T[i].Left] = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                T[i].Left = Null;</span><br><span class="line">            <span class="comment">// 5.如果读取非&#x27;-&#x27;数据则写入右子树，同时check标记该点有子树，读入空则为Null</span></span><br><span class="line">            <span class="keyword">if</span> (cr != <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">                T[i].Right = cr - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">                check[T[i].Right] = <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span></span><br><span class="line">                T[i].Right = Null;</span><br><span class="line">            <span class="comment">// 6.写入结点的值</span></span><br><span class="line">            T[i].Element = i;</span><br><span class="line">            <span class="comment">// 7.如果左右都为&#x27;-&#x27;，叶子数leves加1</span></span><br><span class="line">            <span class="keyword">if</span> (cl == <span class="string">&#x27;-&#x27;</span> &amp;&amp; cr == <span class="string">&#x27;-&#x27;</span>) &#123;</span><br><span class="line">                (*leaves)++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//8.遍历标记数组，index的值check为0，则说明该点无父结点，是根结点</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!check[i]) &#123;</span><br><span class="line">                Root = i;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h4><ol>
+<li>数据结构选择，采用结构体数组2个，一个用于存储输入数据，一个用于层序遍历输出</li>
+<li>层序遍历需要使用队列，则需要头、尾指针(Front,Rear)</li>
+<li>为满足输出格式，加入叶子结点数指针变量LeavesNub</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 树</a>
+              <a href="/tags/%E6%A0%91%E4%B9%A0%E9%A2%98/" rel="tag"><i class="fa fa-tag"></i> 树习题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/07/25/%E5%9B%BE%E7%BB%93%E6%9E%84-%E9%82%BB%E6%8E%A5%E8%A1%A8/" rel="prev" title="图结构_邻接表">
+      <i class="fa fa-chevron-left"></i> 图结构_邻接表
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/26/05-%E6%A0%918-File-Transfer/" rel="next" title="05-树8 File Transfer">
+      05-树8 File Transfer <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Input-Specification"><span class="nav-number">1.</span> <span class="nav-text">Input Specification:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Output-Specification"><span class="nav-number">2.</span> <span class="nav-text">Output Specification:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Input"><span class="nav-number">3.</span> <span class="nav-text">Sample Input:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sample-Output"><span class="nav-number">4.</span> <span class="nav-text">Sample Output:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E6%9E%84-TreeNode%E6%95%B0%E7%BB%84"><span class="nav-number">5.</span> <span class="nav-text">结构 TreeNode数组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E4%BA%8C%E5%8F%89%E6%A0%91-CreateBiTree"><span class="nav-number">6.</span> <span class="nav-text">生成二叉树 CreateBiTree</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BB%E8%A6%81%E6%AD%A5%E9%AA%A4"><span class="nav-number">7.</span> <span class="nav-text">主要步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BC%96%E7%A0%81"><span class="nav-number">8.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93%EF%BC%9A"><span class="nav-number">9.</span> <span class="nav-text">小结：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Penney.wu"
+      src="/images/cat.jpg">
+  <p class="site-author-name" itemprop="name">Penney.wu</p>
+  <div class="site-description" itemprop="description">现在开始种树，种树，种树</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/penneywu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;penneywu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/penney_wu@163.com" title="E-Mail → penney_wu@163.com"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Penney.wu</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">86k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:19</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'T48nMf7C66gHCN3byGhKqAiK-gzGzoHsz',
+      appKey     : 'picCQtRxmWYnP2BpYULiiIAh',
+      placeholder: "说点什么 ...",
+      avatar     : '',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-CN' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
